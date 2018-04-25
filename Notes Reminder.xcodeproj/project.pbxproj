@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		ECF5CD67208F382F001580CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF5CD66208F382F001580CF /* AppDelegate.swift */; };
-		ECF5CD69208F382F001580CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF5CD68208F382F001580CF /* ViewController.swift */; };
 		ECF5CD6C208F382F001580CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF5CD6A208F382F001580CF /* Main.storyboard */; };
 		ECF5CD6F208F382F001580CF /* Notes_Reminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECF5CD6D208F382F001580CF /* Notes_Reminder.xcdatamodeld */; };
 		ECF5CD71208F382F001580CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECF5CD70208F382F001580CF /* Assets.xcassets */; };
 		ECF5CD74208F382F001580CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF5CD72208F382F001580CF /* LaunchScreen.storyboard */; };
+		ECF5CD7C208F3BCD001580CF /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF5CD7B208F3BCD001580CF /* NotesTableViewController.swift */; };
+		ECF8EA6D209088CA00D8D5C8 /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF8EA6C209088CA00D8D5C8 /* NoteDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ECF5CD63208F382F001580CF /* Notes Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notes Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF5CD66208F382F001580CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ECF5CD68208F382F001580CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ECF5CD6B208F382F001580CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECF5CD6E208F382F001580CF /* Notes_Reminder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes_Reminder.xcdatamodel; sourceTree = "<group>"; };
 		ECF5CD70208F382F001580CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECF5CD73208F382F001580CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECF5CD75208F382F001580CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECF5CD7B208F3BCD001580CF /* NotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
+		ECF8EA6C209088CA00D8D5C8 /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				ECF5CD66208F382F001580CF /* AppDelegate.swift */,
-				ECF5CD68208F382F001580CF /* ViewController.swift */,
 				ECF5CD6A208F382F001580CF /* Main.storyboard */,
 				ECF5CD70208F382F001580CF /* Assets.xcassets */,
 				ECF5CD72208F382F001580CF /* LaunchScreen.storyboard */,
 				ECF5CD75208F382F001580CF /* Info.plist */,
 				ECF5CD6D208F382F001580CF /* Notes_Reminder.xcdatamodeld */,
+				ECF5CD7B208F3BCD001580CF /* NotesTableViewController.swift */,
+				ECF8EA6C209088CA00D8D5C8 /* NoteDetailViewController.swift */,
 			);
 			path = "Notes Reminder";
 			sourceTree = "<group>";
@@ -139,9 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECF5CD69208F382F001580CF /* ViewController.swift in Sources */,
 				ECF5CD6F208F382F001580CF /* Notes_Reminder.xcdatamodeld in Sources */,
+				ECF8EA6D209088CA00D8D5C8 /* NoteDetailViewController.swift in Sources */,
 				ECF5CD67208F382F001580CF /* AppDelegate.swift in Sources */,
+				ECF5CD7C208F3BCD001580CF /* NotesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
