@@ -39,6 +39,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ECC130A22091D5C3008B2FB0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECF5CD7B208F3BCD001580CF /* NotesTableViewController.swift */,
+				ECF8EA6C209088CA00D8D5C8 /* NoteDetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ECC130A32091D610008B2FB0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ECF5CD6D208F382F001580CF /* Notes_Reminder.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ECC130A42091D627008B2FB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ECF5CD6A208F382F001580CF /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ECC130A52091D7C7008B2FB0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECF5CD70208F382F001580CF /* Assets.xcassets */,
+				ECF5CD72208F382F001580CF /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		ECF5CD5A208F382F001580CF = {
 			isa = PBXGroup;
 			children = (
@@ -59,13 +93,11 @@
 			isa = PBXGroup;
 			children = (
 				ECF5CD66208F382F001580CF /* AppDelegate.swift */,
-				ECF5CD6A208F382F001580CF /* Main.storyboard */,
-				ECF5CD70208F382F001580CF /* Assets.xcassets */,
-				ECF5CD72208F382F001580CF /* LaunchScreen.storyboard */,
+				ECC130A42091D627008B2FB0 /* Views */,
+				ECC130A32091D610008B2FB0 /* Model */,
+				ECC130A22091D5C3008B2FB0 /* Controllers */,
+				ECC130A52091D7C7008B2FB0 /* Supporting Files */,
 				ECF5CD75208F382F001580CF /* Info.plist */,
-				ECF5CD6D208F382F001580CF /* Notes_Reminder.xcdatamodeld */,
-				ECF5CD7B208F3BCD001580CF /* NotesTableViewController.swift */,
-				ECF8EA6C209088CA00D8D5C8 /* NoteDetailViewController.swift */,
 			);
 			path = "Notes Reminder";
 			sourceTree = "<group>";
