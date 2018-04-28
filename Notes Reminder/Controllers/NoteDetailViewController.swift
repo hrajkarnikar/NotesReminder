@@ -9,13 +9,16 @@
 import UIKit
 import CoreData
 
-class NoteDetailViewController: UIViewController {
+class NoteDetailViewController: UIViewController, UITextViewDelegate {
     
     
+    @IBOutlet weak var noteText: UITextView!
+    
+    var noteArray = [Notes]()
     
     var selectedNote : Notes? {
         didSet{
-            
+            loadDetail()
         }
     }
     
@@ -25,6 +28,7 @@ class NoteDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        noteText.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -32,6 +36,38 @@ class NoteDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+    func loadDetail(with request: NSFetchRequest<Notes> = Notes.fetchRequest(), predicate: NSPredicate? = nil){
+
+        let notePredicate = NSPredicate(format: "title MATCHES %@", selectedNote!.title!)
+        
+        if let additionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [notePredicate,additionalPredicate])
+        }else{
+            request.predicate = notePredicate
+        }
+        
+        
+        do{
+            noteArray = try context.fetch(request)
+            
+            noteText.text = "test"
+            
+            /*if let noteDetail = noteArray.first?.detail {
+                noteText.text = noteDetail
+            }else{
+                noteText.text = ""
+            }*/
+            
+        } catch {
+            print("Error in fetch \(error)")
+        }
+        
+        /*noteText.reloadInputViews()*/
+        
     }
     
 
