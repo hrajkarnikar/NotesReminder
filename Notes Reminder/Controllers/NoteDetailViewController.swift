@@ -16,10 +16,16 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate {
     
     var noteArray = [Notes]()
     
+    var name = ""
+    
     var selectedNote : Notes? {
         didSet{
             loadDetail()
         }
+    }
+    
+    func updateView(itemData: Notes) {
+        name = itemData.title!
     }
     
     
@@ -29,6 +35,8 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         noteText.delegate = self
+        
+        loadDetail()
 
         // Do any additional setup after loading the view.
     }
@@ -38,11 +46,27 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("did end editing")
+        saveNotes()
+    }
+    
+    func saveNotes() {
+        
+        do {
+            try context.save()
+        }catch{
+            print("Error in saving \(error)")
+        }
+        
+        
+    }
+    
     
     
     func loadDetail(with request: NSFetchRequest<Notes> = Notes.fetchRequest(), predicate: NSPredicate? = nil){
 
-        let notePredicate = NSPredicate(format: "title MATCHES %@", selectedNote!.title!)
+        let notePredicate = NSPredicate(format: "title MATCHES %@", name)
         
         if let additionalPredicate = predicate {
             request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [notePredicate,additionalPredicate])
@@ -54,13 +78,13 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate {
         do{
             noteArray = try context.fetch(request)
             
-            noteText.text = "test"
+            //noteText!.text = "test"
             
-            /*if let noteDetail = noteArray.first?.detail {
+            if let noteDetail = noteArray.first?.detail {
                 noteText.text = noteDetail
             }else{
                 noteText.text = ""
-            }*/
+            }
             
         } catch {
             print("Error in fetch \(error)")

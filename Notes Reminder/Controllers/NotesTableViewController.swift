@@ -53,7 +53,8 @@ class NotesTableViewController: UITableViewController {
         let destinationVC = segue.destination as! NoteDetailViewController
         
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedNote = noteArray[indexPath.row]
+            //destinationVC.selectedNote = noteArray[indexPath.row]
+            destinationVC.updateView(itemData: noteArray[indexPath.row])
         }
     }
     
@@ -68,6 +69,7 @@ class NotesTableViewController: UITableViewController {
             
             let newNote = Notes(context: self.context)
             newNote.title = textField.text!
+            newNote.detail = "this is a second test"
             self.noteArray.append(newNote)
             self.saveNotes()
             
@@ -79,7 +81,7 @@ class NotesTableViewController: UITableViewController {
         }
         
         alert.addAction(action)
-
+        tableView.reloadData()
         
         present(alert, animated: true, completion: nil)
     }
