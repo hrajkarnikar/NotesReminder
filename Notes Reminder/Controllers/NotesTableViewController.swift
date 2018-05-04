@@ -8,8 +8,27 @@
 
 import UIKit
 import CoreData
+import SwipeCellKit
 
-class NotesTableViewController: UITableViewController {
+class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            
+            self.context.delete(self.noteArray[indexPath.row])
+            self.noteArray.remove(at: indexPath.row)
+            self.saveNotes()
+            
+            
+        }
+        
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "Trash Icon")
+        
+        return [deleteAction]
+    }
+    
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -19,6 +38,8 @@ class NotesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         loadNotes()
+        
+        tableView.rowHeight = 80.0
 
     }
 
@@ -33,11 +54,13 @@ class NotesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as! SwipeTableViewCell
         
         let note = noteArray[indexPath.row]
         
         cell.textLabel?.text = note.title
+        
+        cell.delegate = self
         
 
         return cell
