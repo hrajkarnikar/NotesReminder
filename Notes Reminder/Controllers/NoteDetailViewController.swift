@@ -48,6 +48,7 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         print("did end editing")
+        noteArray.first?.detail = noteText.text
         saveNotes()
     }
     
