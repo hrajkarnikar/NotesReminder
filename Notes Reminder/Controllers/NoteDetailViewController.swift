@@ -92,6 +92,9 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate {
         }
         
         /*noteText.reloadInputViews()*/
+        navigationItem.title = name
+
+    
         
     }
     
@@ -106,4 +109,12 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate {
     }
     */
 
+    @IBAction func shareButtonPressed(_ sender: UIBarButtonItem) {
+        
+        let text = "This is the text....."
+        let textShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textShare , applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+    }
 }
