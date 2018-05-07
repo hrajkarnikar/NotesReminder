@@ -111,10 +111,14 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func shareButtonPressed(_ sender: UIBarButtonItem) {
         
-        let text = "This is the text....."
+        let text = noteText.text!
         let textShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textShare , applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true, completion: nil)
+        
+        DispatchQueue.main.async {
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+        //self.present(activityViewController, animated: true, completion: nil)
     }
 }
