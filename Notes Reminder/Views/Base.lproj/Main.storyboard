@@ -72,6 +72,12 @@
                                             <action selector="shareButtonPressed:" destination="g9F-5Z-JBG" id="CPp-ei-bmn"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="StB-2c-Yqe"/>
+                                    <barButtonItem title="Item" image="alarm-bell-symbol-2" landscapeImage="alarm-bell-symbol-2" largeContentSizeImage="alarm-bell-symbol-2" id="8iv-5a-MDC">
+                                        <connections>
+                                            <action selector="reminderButtonPressed:" destination="g9F-5Z-JBG" id="1R8-5l-1RE"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -107,4 +113,7 @@
             <point key="canvasLocation" x="657" y="-10"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="alarm-bell-symbol-2" width="16" height="16"/>
+    </resources>
 </document>

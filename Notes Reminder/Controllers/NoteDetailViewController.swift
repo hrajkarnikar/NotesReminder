@@ -121,4 +121,8 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate {
         }
         //self.present(activityViewController, animated: true, completion: nil)
     }
+    @IBAction func reminderButtonPressed(_ sender: UIBarButtonItem) {
+        
+        
+    }
 }
