@@ -8,8 +8,12 @@
 
 import UIKit
 import CoreData
+import EventKit
 
 class NoteDetailViewController: UIViewController, UITextViewDelegate {
+    
+    var eventStore: EKEventStore!
+    var reminders: [EKReminder]!
     
     
     @IBOutlet weak var noteText: UITextView!
@@ -40,6 +44,8 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate {
 
         // Do any additional setup after loading the view.
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
