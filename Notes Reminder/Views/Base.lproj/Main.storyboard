@@ -88,19 +88,58 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="noteText" destination="ok0-8M-OTs" id="AEx-RH-QQM"/>
+                        <segue destination="NiI-31-rPk" kind="show" identifier="addReminder" id="egH-WH-ndq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YEe-Rl-Hro" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2248.8000000000002" y="-10.344827586206897"/>
         </scene>
+        <!--Reminder View Controller-->
+        <scene sceneID="uRt-oM-vyK">
+            <objects>
+                <viewController id="NiI-31-rPk" customClass="ReminderViewController" customModule="Notes_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hoa-bO-3ZG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vh7-8y-eO8">
+                                <rect key="frame" x="196" y="116" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remind me on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVP-Oe-cyK">
+                                <rect key="frame" x="16" y="116" width="110" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="pmQ-04-eC6"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="done" id="DCz-Y6-OSK"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="dateTextField" destination="Vh7-8y-eO8" id="saS-Nq-0nu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hr4-Ec-7az" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2976.8000000000002" y="-12.143928035982009"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gnC-2P-5hs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w3U-3K-Dao" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="yV0-Go-sTm">
-                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yV0-Go-sTm">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

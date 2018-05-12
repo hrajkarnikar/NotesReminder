@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8388E30020A6F7760013DDF9 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8388E2FF20A6F7760013DDF9 /* ReminderViewController.swift */; };
 		DB4F61B8F2DEF0B32D786AC7 /* Pods_Notes_Reminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3622DB5734FA5EFA66C6683 /* Pods_Notes_Reminder.framework */; };
 		ECF5CD67208F382F001580CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF5CD66208F382F001580CF /* AppDelegate.swift */; };
 		ECF5CD6C208F382F001580CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF5CD6A208F382F001580CF /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		2DB161F8B42D9D60A22A0DC0 /* Pods-Notes Reminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes Reminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Notes Reminder/Pods-Notes Reminder.debug.xcconfig"; sourceTree = "<group>"; };
 		8212042CA302E0B6628E82A6 /* Pods-Notes Reminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes Reminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Notes Reminder/Pods-Notes Reminder.release.xcconfig"; sourceTree = "<group>"; };
+		8388E2FF20A6F7760013DDF9 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		D3622DB5734FA5EFA66C6683 /* Pods_Notes_Reminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notes_Reminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF5CD63208F382F001580CF /* Notes Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notes Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF5CD66208F382F001580CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			children = (
 				ECF5CD7B208F3BCD001580CF /* NotesTableViewController.swift */,
 				ECF8EA6C209088CA00D8D5C8 /* NoteDetailViewController.swift */,
+				8388E2FF20A6F7760013DDF9 /* ReminderViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			files = (
 				ECF5CD6F208F382F001580CF /* Notes_Reminder.xcdatamodeld in Sources */,
 				ECF8EA6D209088CA00D8D5C8 /* NoteDetailViewController.swift in Sources */,
+				8388E30020A6F7760013DDF9 /* ReminderViewController.swift in Sources */,
 				ECF5CD67208F382F001580CF /* AppDelegate.swift in Sources */,
 				ECF5CD7C208F3BCD001580CF /* NotesTableViewController.swift in Sources */,
 			);
