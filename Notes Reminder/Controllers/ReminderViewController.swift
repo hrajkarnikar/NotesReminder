@@ -13,11 +13,19 @@ class ReminderViewController: UIViewController {
     
     @IBOutlet weak var dateTextField: UITextField!
     
-    var eventStore: EKEventStore!
-    var datePicker: UIDatePicker! 
+    var eventStore = EKEventStore()
+    var datePicker: UIDatePicker!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eventStore.requestAccess(to: EKEntityType.reminder, completion:
+            {(granted, error) in
+                if !granted {
+                    print("Access to store not granted")
+                }
+        })
 
         datePicker = UIDatePicker()
         datePicker.addTarget(self, action: #selector(self.datePickerValueChanged(datePicker:)), for: .valueChanged)
@@ -50,6 +58,25 @@ class ReminderViewController: UIViewController {
     }
     */
     @IBAction func donePressed(_ sender: UIBarButtonItem) {
+    }
+    
+    
+    
+    func createReminder(){
+        let reminder = EKReminder(eventStore: self.eventStore)
+        reminder.title = "test"
+        //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //let dueDateComponents = appDelegate.dateComponentFromNSDate(datePicker.date)
+        //reminder.dueDateComponents = dueDateComponents
+        reminder.calendar = self.eventStore.defaultCalendarForNewReminders()
+        do {
+            try self.eventStore.save(reminder, commit: true)
+            dismiss(animated: true, completion: nil)
+        }catch{
+            print("Error creating and saving new reminder : \(error)")
+        }
     }
     
 }
