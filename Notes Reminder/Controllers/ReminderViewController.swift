@@ -31,6 +31,7 @@ class ReminderViewController: UIViewController {
     
     @objc func datePickerValueChanged(datePicker: UIDatePicker){
         self.dateTextField.text = self.datePicker.date.description
+        dateTextField.resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,5 +49,7 @@ class ReminderViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func donePressed(_ sender: UIBarButtonItem) {
+    }
+    
 }

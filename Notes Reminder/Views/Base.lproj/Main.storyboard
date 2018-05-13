@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="2248.8000000000002" y="-10.344827586206897"/>
         </scene>
-        <!--Reminder View Controller-->
+        <!--Reminder-->
         <scene sceneID="uRt-oM-vyK">
             <objects>
-                <viewController id="NiI-31-rPk" customClass="ReminderViewController" customModule="Notes_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Reminder" id="NiI-31-rPk" customClass="ReminderViewController" customModule="Notes_Reminder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hoa-bO-3ZG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,9 +121,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pmQ-04-eC6"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem systemItem="done" id="DCz-Y6-OSK"/>
-                    </toolbarItems>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="wIk-48-oII">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="DCz-Y6-OSK">
+                            <connections>
+                                <action selector="donePressed:" destination="NiI-31-rPk" id="tNW-cI-dbK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dateTextField" destination="Vh7-8y-eO8" id="saS-Nq-0nu"/>
