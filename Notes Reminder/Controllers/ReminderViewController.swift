@@ -58,6 +58,7 @@ class ReminderViewController: UIViewController {
     }
     */
     @IBAction func donePressed(_ sender: UIBarButtonItem) {
+        createReminder()
     }
     
     
@@ -65,11 +66,14 @@ class ReminderViewController: UIViewController {
     func createReminder(){
         let reminder = EKReminder(eventStore: self.eventStore)
         reminder.title = "test"
-        //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
+        let greg = Calendar(identifier: .gregorian)
+        let components: Set<Calendar.Component> = [.second, .minute, .hour, .day, .month, .year]
+        
+        let dateComponents = greg.dateComponents(components, from: datePicker.date)
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         //let dueDateComponents = appDelegate.dateComponentFromNSDate(datePicker.date)
-        //reminder.dueDateComponents = dueDateComponents
+        reminder.dueDateComponents = dateComponents
         reminder.calendar = self.eventStore.defaultCalendarForNewReminders()
         do {
             try self.eventStore.save(reminder, commit: true)
