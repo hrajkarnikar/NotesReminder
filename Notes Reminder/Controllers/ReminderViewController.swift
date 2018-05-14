@@ -15,6 +15,11 @@ class ReminderViewController: UIViewController {
     
     var eventStore = EKEventStore()
     var datePicker: UIDatePicker!
+    var noteCopy: String = ""
+    
+    func getNoteText(noteText: String) {
+        noteCopy = noteText
+    }
    
     
     override func viewDidLoad() {
@@ -29,11 +34,10 @@ class ReminderViewController: UIViewController {
 
         datePicker = UIDatePicker()
         datePicker.addTarget(self, action: #selector(self.datePickerValueChanged(datePicker:)), for: .valueChanged)
-        //datePicker.addTarget(self, action: "addDate", for: UIControlEvents.valueChanged)
         
         datePicker.datePickerMode = UIDatePickerMode.dateAndTime
         dateTextField.inputView = datePicker
-        //reminderTextView.becomeFirstResponder()
+        
         
     }
     
@@ -48,15 +52,7 @@ class ReminderViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     @IBAction func donePressed(_ sender: UIBarButtonItem) {
         createReminder()
     }
@@ -65,7 +61,7 @@ class ReminderViewController: UIViewController {
     
     func createReminder(){
         let reminder = EKReminder(eventStore: self.eventStore)
-        reminder.title = "test"
+        reminder.title = noteCopy
         
         let greg = Calendar(identifier: .gregorian)
         let components: Set<Calendar.Component> = [.second, .minute, .hour, .day, .month, .year]
