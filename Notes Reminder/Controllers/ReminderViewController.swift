@@ -77,7 +77,8 @@ class ReminderViewController: UIViewController {
         reminder.calendar = self.eventStore.defaultCalendarForNewReminders()
         do {
             try self.eventStore.save(reminder, commit: true)
-            dismiss(animated: true, completion: nil)
+            navigationController?.popViewController(animated: true)
+
         }catch{
             print("Error creating and saving new reminder : \(error)")
         }
