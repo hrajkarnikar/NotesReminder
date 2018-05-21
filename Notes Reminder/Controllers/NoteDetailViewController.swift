@@ -139,4 +139,22 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate, UIImagePic
         
         present(imagePicker, animated: true, completion: nil)
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        //create and NSTextAttachment and add your image to it.
+        let attachment = NSTextAttachment()
+        attachment.image = image
+        //calculate new size.  (-20 because I want to have a litle space on the right of picture)
+        let newImageWidth = (noteText.bounds.size.width - 20 )
+        let scale = newImageWidth/image.size.width
+        let newImageHeight = image.size.height * scale
+        //resize this
+        attachment.bounds = CGRect.init(x: 0, y: 0, width: newImageWidth, height: newImageHeight)
+        //put your NSTextAttachment into and attributedString
+        let attString = NSAttributedString(attachment: attachment)
+        //add this attributed string to the current position.
+        noteText.textStorage.insert(attString, at: noteText.selectedRange.location)
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
