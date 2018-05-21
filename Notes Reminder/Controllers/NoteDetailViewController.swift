@@ -10,10 +10,11 @@ import UIKit
 import CoreData
 import EventKit
 
-class NoteDetailViewController: UIViewController, UITextViewDelegate {
+class NoteDetailViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var eventStore: EKEventStore!
     var reminders: [EKReminder]!
+    let imagePicker = UIImagePickerController()
     
     
     @IBOutlet weak var noteText: UITextView!
@@ -39,6 +40,7 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         noteText.delegate = self
+        imagePicker.delegate = self
         
         loadDetail()
 
@@ -56,7 +58,9 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate {
         print("did end editing")
         noteArray.first?.detail = noteText.text
         saveNotes()
+        
     }
+    
     
     func saveNotes() {
         
@@ -128,5 +132,11 @@ class NoteDetailViewController: UIViewController, UITextViewDelegate {
     @IBAction func reminderButtonPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addReminder", sender: self)
         
+    }
+    @IBAction func cameraButtonPressed(_ sender: UIBarButtonItem) {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false
+        
+        present(imagePicker, animated: true, completion: nil)
     }
 }

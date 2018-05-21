@@ -92,7 +92,7 @@ class NotesTableViewController: UITableViewController, SwipeTableViewCellDelegat
             
             let newNote = Notes(context: self.context)
             newNote.title = textField.text!
-            newNote.detail = "this is a second test"
+            newNote.detail = ""
             self.noteArray.append(newNote)
             self.saveNotes()
             
