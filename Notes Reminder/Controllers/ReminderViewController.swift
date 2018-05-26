@@ -9,7 +9,7 @@
 import UIKit
 import EventKit
 
-class ReminderViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ReminderViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, CLLocationManagerDelegate {
     
     
     
@@ -17,10 +17,14 @@ class ReminderViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBOutlet weak var repeatTextField: UITextField!
     
+    @IBOutlet weak var locationSwitchField: UISwitch!
+    
     var eventStore = EKEventStore()
     var datePicker: UIDatePicker!
     var noteCopy: String = ""
     var dayOfTheWeek: EKRecurrenceDayOfWeek? = nil
+    var locManager: CLLocationManager!
+    
     
     let daysOfTheWeek = NSCalendar.current.shortWeekdaySymbols
     //[EKRecurrenceDayOfWeek(.monday), EKRecurrenceDayOfWeek(.tuesday)]
@@ -51,7 +55,29 @@ class ReminderViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         repeatTextField.inputView = pickerView
         
+        setupSwitch()
         
+        locManager = CLLocationManager()
+        locManager.delegate = self
+        locManager.requestWhenInUseAuthorization()
+        
+        
+        
+    }
+    
+    func setupSwitch(){
+        locationSwitchField.addTarget(self, action: #selector(switchValueDidChange(_:)), for: .valueChanged)
+    }
+    
+    @objc func switchValueDidChange(_ sender: UISwitch) {
+        //Called when yourSwitch change its value
+        if locationSwitchField.isOn {
+            //Starts tracking the user's current location.
+            self.locManager.startUpdatingLocation()
+        } else {
+            //Stops the location updates.
+            self.locManager.stopUpdatingLocation()
+        }
     }
     
     @objc func datePickerValueChanged(datePicker: UIDatePicker){
@@ -132,4 +158,7 @@ class ReminderViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
+    @IBAction func locationSwitchPressed(_ sender: UISwitch) {
+        print("switch pressed")
+    }
 }

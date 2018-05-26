@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Notes Reminder would like to use your location</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Notes Reminder would like to access your calendars</string>
 	<key>NSRemindersUsageDescription</key>
